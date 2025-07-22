@@ -44,85 +44,58 @@ class SnakeGame {
     
     createWallPatterns() {
         return {
-            // Level 2-5: Continuous vertical line (center, up to down)
+            // Level 2-5: Simple vertical line (up to down)
             simple: [
                 { x: 20, y: 5 }, { x: 20, y: 6 }, { x: 20, y: 7 }, { x: 20, y: 8 }, 
                 { x: 20, y: 9 }, { x: 20, y: 10 }, { x: 20, y: 11 }, { x: 20, y: 12 }, 
                 { x: 20, y: 13 }, { x: 20, y: 14 }, { x: 20, y: 15 }, { x: 20, y: 16 }, 
-                { x: 20, y: 17 }, { x: 20, y: 18 }, { x: 20, y: 19 }, { x: 20, y: 20 },
-                { x: 20, y: 21 }, { x: 20, y: 22 }, { x: 20, y: 23 }, { x: 20, y: 24 }
+                { x: 20, y: 17 }, { x: 20, y: 18 }, { x: 20, y: 19 }, { x: 20, y: 20 }
             ],
             
-            // Level 6-10: Continuous horizontal line (center, left to right)
+            // Level 6-10: Horizontal line (left to right)
             cross: [
-                { x: 8, y: 15 }, { x: 9, y: 15 }, { x: 10, y: 15 }, { x: 11, y: 15 }, 
+                { x: 10, y: 15 }, { x: 11, y: 15 }, { x: 12, y: 15 }, { x: 13, y: 15 }, 
+                { x: 14, y: 15 }, { x: 15, y: 15 }, { x: 16, y: 15 }, { x: 17, y: 15 }, 
+                { x: 18, y: 15 }, { x: 19, y: 15 }, { x: 20, y: 15 }, { x: 21, y: 15 }, 
+                { x: 22, y: 15 }, { x: 23, y: 15 }, { x: 24, y: 15 }, { x: 25, y: 15 }
+            ],
+            
+            // Level 11-15: Two vertical lines
+            box: [
+                // First vertical line
+                { x: 15, y: 5 }, { x: 15, y: 6 }, { x: 15, y: 7 }, { x: 15, y: 8 }, 
+                { x: 15, y: 9 }, { x: 15, y: 10 }, { x: 15, y: 11 }, { x: 15, y: 12 }, 
+                { x: 15, y: 13 }, { x: 15, y: 14 }, { x: 15, y: 15 }, { x: 15, y: 16 },
+                // Second vertical line
+                { x: 25, y: 8 }, { x: 25, y: 9 }, { x: 25, y: 10 }, { x: 25, y: 11 }, 
+                { x: 25, y: 12 }, { x: 25, y: 13 }, { x: 25, y: 14 }, { x: 25, y: 15 }, 
+                { x: 25, y: 16 }, { x: 25, y: 17 }, { x: 25, y: 18 }, { x: 25, y: 19 }
+            ],
+            
+            // Level 16-20: Two horizontal lines
+            maze: [
+                // First horizontal line
+                { x: 8, y: 10 }, { x: 9, y: 10 }, { x: 10, y: 10 }, { x: 11, y: 10 }, 
+                { x: 12, y: 10 }, { x: 13, y: 10 }, { x: 14, y: 10 }, { x: 15, y: 10 }, 
+                { x: 16, y: 10 }, { x: 17, y: 10 }, { x: 18, y: 10 }, { x: 19, y: 10 },
+                // Second horizontal line
+                { x: 20, y: 20 }, { x: 21, y: 20 }, { x: 22, y: 20 }, { x: 23, y: 20 }, 
+                { x: 24, y: 20 }, { x: 25, y: 20 }, { x: 26, y: 20 }, { x: 27, y: 20 }, 
+                { x: 28, y: 20 }, { x: 29, y: 20 }, { x: 30, y: 20 }, { x: 31, y: 20 }
+            ],
+            
+            // Level 21+: Three lines (one horizontal, two vertical)
+            spiral: [
+                // Horizontal line in middle
                 { x: 12, y: 15 }, { x: 13, y: 15 }, { x: 14, y: 15 }, { x: 15, y: 15 }, 
                 { x: 16, y: 15 }, { x: 17, y: 15 }, { x: 18, y: 15 }, { x: 19, y: 15 }, 
                 { x: 20, y: 15 }, { x: 21, y: 15 }, { x: 22, y: 15 }, { x: 23, y: 15 },
-                { x: 24, y: 15 }, { x: 25, y: 15 }, { x: 26, y: 15 }, { x: 27, y: 15 },
-                { x: 28, y: 15 }, { x: 29, y: 15 }, { x: 30, y: 15 }, { x: 31, y: 15 }
-            ],
-            
-            // Level 11-15: Two continuous vertical lines
-            box: [
-                // Left continuous vertical line
-                { x: 12, y: 5 }, { x: 12, y: 6 }, { x: 12, y: 7 }, { x: 12, y: 8 }, 
-                { x: 12, y: 9 }, { x: 12, y: 10 }, { x: 12, y: 11 }, { x: 12, y: 12 }, 
-                { x: 12, y: 13 }, { x: 12, y: 14 }, { x: 12, y: 15 }, { x: 12, y: 16 },
-                { x: 12, y: 17 }, { x: 12, y: 18 }, { x: 12, y: 19 }, { x: 12, y: 20 },
-                { x: 12, y: 21 }, { x: 12, y: 22 }, { x: 12, y: 23 }, { x: 12, y: 24 },
-                { x: 12, y: 25 },
-                // Right continuous vertical line
-                { x: 28, y: 5 }, { x: 28, y: 6 }, { x: 28, y: 7 }, { x: 28, y: 8 }, 
-                { x: 28, y: 9 }, { x: 28, y: 10 }, { x: 28, y: 11 }, { x: 28, y: 12 }, 
-                { x: 28, y: 13 }, { x: 28, y: 14 }, { x: 28, y: 15 }, { x: 28, y: 16 },
-                { x: 28, y: 17 }, { x: 28, y: 18 }, { x: 28, y: 19 }, { x: 28, y: 20 },
-                { x: 28, y: 21 }, { x: 28, y: 22 }, { x: 28, y: 23 }, { x: 28, y: 24 },
-                { x: 28, y: 25 }
-            ],
-            
-            // Level 16-20: Two continuous horizontal lines
-            maze: [
-                // Top continuous horizontal line
-                { x: 6, y: 8 }, { x: 7, y: 8 }, { x: 8, y: 8 }, { x: 9, y: 8 }, 
-                { x: 10, y: 8 }, { x: 11, y: 8 }, { x: 12, y: 8 }, { x: 13, y: 8 }, 
-                { x: 14, y: 8 }, { x: 15, y: 8 }, { x: 16, y: 8 }, { x: 17, y: 8 },
-                { x: 18, y: 8 }, { x: 19, y: 8 }, { x: 20, y: 8 }, { x: 21, y: 8 },
-                { x: 22, y: 8 }, { x: 23, y: 8 }, { x: 24, y: 8 }, { x: 25, y: 8 },
-                { x: 26, y: 8 }, { x: 27, y: 8 }, { x: 28, y: 8 }, { x: 29, y: 8 },
-                { x: 30, y: 8 }, { x: 31, y: 8 }, { x: 32, y: 8 }, { x: 33, y: 8 },
-                // Bottom continuous horizontal line
-                { x: 6, y: 22 }, { x: 7, y: 22 }, { x: 8, y: 22 }, { x: 9, y: 22 },
-                { x: 10, y: 22 }, { x: 11, y: 22 }, { x: 12, y: 22 }, { x: 13, y: 22 }, 
-                { x: 14, y: 22 }, { x: 15, y: 22 }, { x: 16, y: 22 }, { x: 17, y: 22 }, 
-                { x: 18, y: 22 }, { x: 19, y: 22 }, { x: 20, y: 22 }, { x: 21, y: 22 },
-                { x: 22, y: 22 }, { x: 23, y: 22 }, { x: 24, y: 22 }, { x: 25, y: 22 },
-                { x: 26, y: 22 }, { x: 27, y: 22 }, { x: 28, y: 22 }, { x: 29, y: 22 },
-                { x: 30, y: 22 }, { x: 31, y: 22 }, { x: 32, y: 22 }, { x: 33, y: 22 }
-            ],
-            
-            // Level 21+: Three continuous lines (one horizontal, two vertical)
-            spiral: [
-                // Center continuous horizontal line
-                { x: 8, y: 15 }, { x: 9, y: 15 }, { x: 10, y: 15 }, { x: 11, y: 15 },
-                { x: 12, y: 15 }, { x: 13, y: 15 }, { x: 14, y: 15 }, { x: 15, y: 15 }, 
-                { x: 16, y: 15 }, { x: 17, y: 15 }, { x: 18, y: 15 }, { x: 19, y: 15 },
-                { x: 20, y: 15 }, { x: 21, y: 15 }, { x: 22, y: 15 }, { x: 23, y: 15 },
-                { x: 24, y: 15 }, { x: 25, y: 15 }, { x: 26, y: 15 }, { x: 27, y: 15 },
-                { x: 28, y: 15 }, { x: 29, y: 15 }, { x: 30, y: 15 }, { x: 31, y: 15 },
-                { x: 32, y: 15 },
-                // Left continuous vertical line
-                { x: 6, y: 6 }, { x: 6, y: 7 }, { x: 6, y: 8 }, { x: 6, y: 9 }, 
-                { x: 6, y: 10 }, { x: 6, y: 11 }, { x: 6, y: 12 }, { x: 6, y: 13 }, 
-                { x: 6, y: 14 }, { x: 6, y: 16 }, { x: 6, y: 17 }, { x: 6, y: 18 },
-                { x: 6, y: 19 }, { x: 6, y: 20 }, { x: 6, y: 21 }, { x: 6, y: 22 },
-                { x: 6, y: 23 }, { x: 6, y: 24 },
-                // Right continuous vertical line
-                { x: 34, y: 6 }, { x: 34, y: 7 }, { x: 34, y: 8 }, { x: 34, y: 9 }, 
-                { x: 34, y: 10 }, { x: 34, y: 11 }, { x: 34, y: 12 }, { x: 34, y: 13 }, 
-                { x: 34, y: 14 }, { x: 34, y: 16 }, { x: 34, y: 17 }, { x: 34, y: 18 },
-                { x: 34, y: 19 }, { x: 34, y: 20 }, { x: 34, y: 21 }, { x: 34, y: 22 },
-                { x: 34, y: 23 }, { x: 34, y: 24 }
+                // Left vertical line
+                { x: 10, y: 8 }, { x: 10, y: 9 }, { x: 10, y: 10 }, { x: 10, y: 11 }, 
+                { x: 10, y: 12 }, { x: 10, y: 13 }, { x: 10, y: 14 },
+                // Right vertical line
+                { x: 30, y: 16 }, { x: 30, y: 17 }, { x: 30, y: 18 }, { x: 30, y: 19 }, 
+                { x: 30, y: 20 }, { x: 30, y: 21 }, { x: 30, y: 22 }
             ]
         };
     }
@@ -284,6 +257,9 @@ class SnakeGame {
             }
         });
         
+        // Mobile Controller Touch Events
+        this.setupMobileControls();
+        
         // Button controls
         document.getElementById('pauseBtn').addEventListener('click', () => {
             if (this.gameRunning) this.togglePause();
@@ -332,28 +308,190 @@ class SnakeGame {
         
         // Speed control buttons
         document.getElementById('speedUpBtn').addEventListener('click', () => {
+            if (!this.gameRunning) {
+                this.startGame();
+                return;
+            }
             this.speedMultiplier += 0.2;
             if (this.speedMultiplier > 3.0) this.speedMultiplier = 3.0;
             this.updateUI();
         });
         
         document.getElementById('speedDownBtn').addEventListener('click', () => {
+            if (!this.gameRunning) {
+                this.startGame();
+                return;
+            }
             this.speedMultiplier -= 0.2;
             if (this.speedMultiplier < 0.2) this.speedMultiplier = 0.2;
             this.updateUI();
         });
+    }
+    
+    setupMobileControls() {
+        // D-Pad Controls
+        const dpadButtons = {
+            btnUp: { dx: 0, dy: -1 },
+            btnDown: { dx: 0, dy: 1 },
+            btnLeft: { dx: -1, dy: 0 },
+            btnRight: { dx: 1, dy: 0 }
+        };
         
-        document.getElementById('resetSpeedBtn').addEventListener('click', () => {
-            this.speedMultiplier = 1.0;
-            document.getElementById('speedSlider').value = 1.0;
-            this.updateUI();
+        // Add touch events for D-Pad buttons
+        Object.keys(dpadButtons).forEach(buttonId => {
+            const button = document.getElementById(buttonId);
+            if (button) {
+                const direction = dpadButtons[buttonId];
+                
+                // Touch events
+                button.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    this.handleDirectionInput(direction.dx, direction.dy);
+                    this.addTouchFeedback(button);
+                });
+                
+                // Mouse events for desktop testing
+                button.addEventListener('mousedown', (e) => {
+                    e.preventDefault();
+                    this.handleDirectionInput(direction.dx, direction.dy);
+                    this.addTouchFeedback(button);
+                });
+                
+                // Prevent context menu on long press
+                button.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                });
+            }
         });
         
-        // Speed slider control
-        document.getElementById('speedSlider').addEventListener('input', (e) => {
-            this.speedMultiplier = parseFloat(e.target.value);
-            this.updateUI();
-        });
+        // Mobile Action Buttons (separate from existing desktop buttons)
+        const mobilePauseBtn = document.getElementById('mobilePauseBtn');
+        if (mobilePauseBtn) {
+            mobilePauseBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                this.handlePauseAction();
+                this.addTouchFeedback(mobilePauseBtn);
+            });
+            
+            mobilePauseBtn.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                this.handlePauseAction();
+                this.addTouchFeedback(mobilePauseBtn);
+            });
+        }
+        
+        const mobileRestartBtn = document.getElementById('mobileRestartBtn');
+        if (mobileRestartBtn) {
+            mobileRestartBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                this.handleRestartAction();
+                this.addTouchFeedback(mobileRestartBtn);
+            });
+            
+            mobileRestartBtn.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                this.handleRestartAction();
+                this.addTouchFeedback(mobileRestartBtn);
+            });
+        }
+        
+        // Speed Control Buttons
+        const increaseSpeedBtn = document.getElementById('increaseSpeed');
+        if (increaseSpeedBtn) {
+            increaseSpeedBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                this.increaseSpeed();
+                this.addTouchFeedback(increaseSpeedBtn);
+            });
+            
+            increaseSpeedBtn.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                this.increaseSpeed();
+                this.addTouchFeedback(increaseSpeedBtn);
+            });
+        }
+        
+        const decreaseSpeedBtn = document.getElementById('decreaseSpeed');
+        if (decreaseSpeedBtn) {
+            decreaseSpeedBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                this.decreaseSpeed();
+                this.addTouchFeedback(decreaseSpeedBtn);
+            });
+            
+            decreaseSpeedBtn.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                this.decreaseSpeed();
+                this.addTouchFeedback(decreaseSpeedBtn);
+            });
+        }
+        
+        // Prevent scrolling when touching the controller area
+        const mobileController = document.getElementById('mobileController');
+        if (mobileController) {
+            mobileController.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+            });
+            
+            mobileController.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+            });
+        }
+    }
+    
+    handleDirectionInput(dx, dy) {
+        // If game is not running, start it first
+        if (!this.gameRunning) {
+            this.startGame();
+            return;
+        }
+        
+        // If game is paused, don't process direction input
+        if (this.gamePaused) return;
+        
+        // Prevent reverse direction
+        if (dx !== 0 && this.dx === 0) {
+            this.dx = dx;
+            this.dy = 0;
+        } else if (dy !== 0 && this.dy === 0) {
+            this.dx = 0;
+            this.dy = dy;
+        }
+    }
+    
+    handlePauseAction() {
+        if (!this.gameRunning) {
+            this.startGame();
+        } else {
+            this.togglePause();
+        }
+    }
+    
+    handleRestartAction() {
+        this.restartGame();
+    }
+    
+    increaseSpeed() {
+        this.speedMultiplier += 0.1;
+        if (this.speedMultiplier > 3.0) {
+            this.speedMultiplier = 3.0;
+        }
+        this.updateUI();
+    }
+    
+    decreaseSpeed() {
+        this.speedMultiplier -= 0.1;
+        if (this.speedMultiplier < 0.1) {
+            this.speedMultiplier = 0.1;
+        }
+        this.updateUI();
+    }
+    
+    addTouchFeedback(element) {
+        element.classList.add('touched');
+        setTimeout(() => {
+            element.classList.remove('touched');
+        }, 200);
     }
     
     startGame() {
